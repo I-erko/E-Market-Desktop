@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="WebListar">
+        <s:complexType />
+      </s:element>
+      <s:element name="WebListarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebListarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebBuscarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebSeleccionar">
+        <s:complexType />
+      </s:element>
+      <s:element name="WebSeleccionarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebSeleccionarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebInsertar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebInsertarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebInsertarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebActualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreAnt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebActualizarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebEliminar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebEliminarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebEliminarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebActivar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebActivarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebActivarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebDesactivar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebDesactivarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebDesactivarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="WebListarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebListar" />
+  </wsdl:message>
+  <wsdl:message name="WebListarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebBuscar" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebBuscarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebSeleccionarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebSeleccionar" />
+  </wsdl:message>
+  <wsdl:message name="WebSeleccionarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebSeleccionarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebInsertarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebInsertar" />
+  </wsdl:message>
+  <wsdl:message name="WebInsertarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebInsertarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebActualizar" />
+  </wsdl:message>
+  <wsdl:message name="WebActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebEliminarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebEliminar" />
+  </wsdl:message>
+  <wsdl:message name="WebEliminarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebEliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebActivarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebActivar" />
+  </wsdl:message>
+  <wsdl:message name="WebActivarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebActivarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebDesactivarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebDesactivar" />
+  </wsdl:message>
+  <wsdl:message name="WebDesactivarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebDesactivarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceCategoriaSoap">
+    <wsdl:operation name="WebListar">
+      <wsdl:input message="tns:WebListarSoapIn" />
+      <wsdl:output message="tns:WebListarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscar">
+      <wsdl:input message="tns:WebBuscarSoapIn" />
+      <wsdl:output message="tns:WebBuscarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebSeleccionar">
+      <wsdl:input message="tns:WebSeleccionarSoapIn" />
+      <wsdl:output message="tns:WebSeleccionarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebInsertar">
+      <wsdl:input message="tns:WebInsertarSoapIn" />
+      <wsdl:output message="tns:WebInsertarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebActualizar">
+      <wsdl:input message="tns:WebActualizarSoapIn" />
+      <wsdl:output message="tns:WebActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebEliminar">
+      <wsdl:input message="tns:WebEliminarSoapIn" />
+      <wsdl:output message="tns:WebEliminarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebActivar">
+      <wsdl:input message="tns:WebActivarSoapIn" />
+      <wsdl:output message="tns:WebActivarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebDesactivar">
+      <wsdl:input message="tns:WebDesactivarSoapIn" />
+      <wsdl:output message="tns:WebDesactivarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceCategoriaSoap" type="tns:WebServiceCategoriaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WebListar">
+      <soap:operation soapAction="http://tempuri.org/WebListar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscar">
+      <soap:operation soapAction="http://tempuri.org/WebBuscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebSeleccionar">
+      <soap:operation soapAction="http://tempuri.org/WebSeleccionar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebInsertar">
+      <soap:operation soapAction="http://tempuri.org/WebInsertar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebActualizar">
+      <soap:operation soapAction="http://tempuri.org/WebActualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebEliminar">
+      <soap:operation soapAction="http://tempuri.org/WebEliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebActivar">
+      <soap:operation soapAction="http://tempuri.org/WebActivar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebDesactivar">
+      <soap:operation soapAction="http://tempuri.org/WebDesactivar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceCategoriaSoap12" type="tns:WebServiceCategoriaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WebListar">
+      <soap12:operation soapAction="http://tempuri.org/WebListar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscar">
+      <soap12:operation soapAction="http://tempuri.org/WebBuscar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebSeleccionar">
+      <soap12:operation soapAction="http://tempuri.org/WebSeleccionar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebInsertar">
+      <soap12:operation soapAction="http://tempuri.org/WebInsertar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebActualizar">
+      <soap12:operation soapAction="http://tempuri.org/WebActualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebEliminar">
+      <soap12:operation soapAction="http://tempuri.org/WebEliminar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebActivar">
+      <soap12:operation soapAction="http://tempuri.org/WebActivar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebDesactivar">
+      <soap12:operation soapAction="http://tempuri.org/WebDesactivar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceCategoria">
+    <wsdl:port name="WebServiceCategoriaSoap" binding="tns:WebServiceCategoriaSoap">
+      <soap:address location="https://localhost:44353/WebServiceCategoria.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceCategoriaSoap12" binding="tns:WebServiceCategoriaSoap12">
+      <soap12:address location="https://localhost:44353/WebServiceCategoria.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

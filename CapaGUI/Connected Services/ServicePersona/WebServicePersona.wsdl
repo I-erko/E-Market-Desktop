@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="WebListar">
+        <s:complexType />
+      </s:element>
+      <s:element name="WebListarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebListarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebListarProveedores">
+        <s:complexType />
+      </s:element>
+      <s:element name="WebListarProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebListarProveedoresResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebListarClientes">
+        <s:complexType />
+      </s:element>
+      <s:element name="WebListarClientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebListarClientesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebBuscarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscarProveedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscarProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebBuscarProveedoresResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscarClientes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebBuscarClientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebBuscarClientesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebInsertar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoPersona" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebInsertarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebInsertarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebActualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoPersona" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreAnt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TipoDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebActualizarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebEliminar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebEliminarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebEliminarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="WebListarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebListar" />
+  </wsdl:message>
+  <wsdl:message name="WebListarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebListarProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:WebListarProveedores" />
+  </wsdl:message>
+  <wsdl:message name="WebListarProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:WebListarProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebListarClientesSoapIn">
+    <wsdl:part name="parameters" element="tns:WebListarClientes" />
+  </wsdl:message>
+  <wsdl:message name="WebListarClientesSoapOut">
+    <wsdl:part name="parameters" element="tns:WebListarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebBuscar" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebBuscarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:WebBuscarProveedores" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:WebBuscarProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarClientesSoapIn">
+    <wsdl:part name="parameters" element="tns:WebBuscarClientes" />
+  </wsdl:message>
+  <wsdl:message name="WebBuscarClientesSoapOut">
+    <wsdl:part name="parameters" element="tns:WebBuscarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebInsertarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebInsertar" />
+  </wsdl:message>
+  <wsdl:message name="WebInsertarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebInsertarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebActualizar" />
+  </wsdl:message>
+  <wsdl:message name="WebActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebEliminarSoapIn">
+    <wsdl:part name="parameters" element="tns:WebEliminar" />
+  </wsdl:message>
+  <wsdl:message name="WebEliminarSoapOut">
+    <wsdl:part name="parameters" element="tns:WebEliminarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicePersonaSoap">
+    <wsdl:operation name="WebListar">
+      <wsdl:input message="tns:WebListarSoapIn" />
+      <wsdl:output message="tns:WebListarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebListarProveedores">
+      <wsdl:input message="tns:WebListarProveedoresSoapIn" />
+      <wsdl:output message="tns:WebListarProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebListarClientes">
+      <wsdl:input message="tns:WebListarClientesSoapIn" />
+      <wsdl:output message="tns:WebListarClientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscar">
+      <wsdl:input message="tns:WebBuscarSoapIn" />
+      <wsdl:output message="tns:WebBuscarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscarProveedores">
+      <wsdl:input message="tns:WebBuscarProveedoresSoapIn" />
+      <wsdl:output message="tns:WebBuscarProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscarClientes">
+      <wsdl:input message="tns:WebBuscarClientesSoapIn" />
+      <wsdl:output message="tns:WebBuscarClientesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebInsertar">
+      <wsdl:input message="tns:WebInsertarSoapIn" />
+      <wsdl:output message="tns:WebInsertarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebActualizar">
+      <wsdl:input message="tns:WebActualizarSoapIn" />
+      <wsdl:output message="tns:WebActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebEliminar">
+      <wsdl:input message="tns:WebEliminarSoapIn" />
+      <wsdl:output message="tns:WebEliminarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicePersonaSoap" type="tns:WebServicePersonaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WebListar">
+      <soap:operation soapAction="http://tempuri.org/WebListar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebListarProveedores">
+      <soap:operation soapAction="http://tempuri.org/WebListarProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebListarClientes">
+      <soap:operation soapAction="http://tempuri.org/WebListarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscar">
+      <soap:operation soapAction="http://tempuri.org/WebBuscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscarProveedores">
+      <soap:operation soapAction="http://tempuri.org/WebBuscarProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscarClientes">
+      <soap:operation soapAction="http://tempuri.org/WebBuscarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebInsertar">
+      <soap:operation soapAction="http://tempuri.org/WebInsertar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebActualizar">
+      <soap:operation soapAction="http://tempuri.org/WebActualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebEliminar">
+      <soap:operation soapAction="http://tempuri.org/WebEliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicePersonaSoap12" type="tns:WebServicePersonaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WebListar">
+      <soap12:operation soapAction="http://tempuri.org/WebListar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebListarProveedores">
+      <soap12:operation soapAction="http://tempuri.org/WebListarProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebListarClientes">
+      <soap12:operation soapAction="http://tempuri.org/WebListarClientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscar">
+      <soap12:operation soapAction="http://tempuri.org/WebBuscar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscarProveedores">
+      <soap12:operation soapAction="http://tempuri.org/WebBuscarProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebBuscarClientes">
+      <soap12:operation soapAction="http://tempuri.org/WebBuscarClientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebInsertar">
+      <soap12:operation soapAction="http://tempuri.org/WebInsertar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebActualizar">
+      <soap12:operation soapAction="http://tempuri.org/WebActualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebEliminar">
+      <soap12:operation soapAction="http://tempuri.org/WebEliminar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServicePersona">
+    <wsdl:port name="WebServicePersonaSoap" binding="tns:WebServicePersonaSoap">
+      <soap:address location="https://localhost:44353/WebServicePersona.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicePersonaSoap12" binding="tns:WebServicePersonaSoap12">
+      <soap12:address location="https://localhost:44353/WebServicePersona.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
